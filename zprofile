@@ -1,19 +1,22 @@
-jenvoracle()
-{
-    export JAVA_HOME=/opt/java/jre
-    export PATH=$PATH:/opt/java/jre/bin
+javaEnvOracle() {
+	export JAVA_HOME=/opt/java/jre
+	export PATH=$PATH:/opt/java/jre/bin
 }
 
-jenv()
-{
-		local version="$1"
+JavaEnv() {
+	local version="$1"
     export JAVA_HOME=/usr/lib/jvm/java-${version:-8}-openjdk
     export PATH=$PATH:/usr/lib/jvm/java-${version:-8}-openjdk/jre/bin
 }
 
-andenv()
-{
+AndroidEnv() {
 	source "$HOME/android/environment.sh"
+}
+
+NvmEnv() {
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
 source $HOME/.ssh-agent.incsh
