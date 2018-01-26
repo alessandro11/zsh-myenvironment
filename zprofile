@@ -1,4 +1,4 @@
-javaEnvOracle() {
+JavaEnvOracle() {
 	export JAVA_HOME=/opt/java/jre
 	export PATH=$PATH:/opt/java/jre/bin
 }
