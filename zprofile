@@ -10,7 +10,9 @@ JavaEnv() {
 }
 
 AndroidEnv() {
-	source "$HOME/android/environment.sh"
+	JavaEnvOracle
+	source "$HOME/projects/androidenv/environment.sh"
+	alias emulator="emulator.sh"
 }
 
 NvmEnv() {
