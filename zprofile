@@ -1,18 +1,16 @@
 JavaEnvOracle() {
-	export JAVA_HOME=/opt/java/jre
-	export PATH=$PATH:/opt/java/jre/bin
+	export JAVA_HOME=/opt/java/
+	export PATH=$PATH:/opt/java/bin
 }
 
 JavaEnv() {
-	local version="$1"
+    local version="$1"
     export JAVA_HOME=/usr/lib/jvm/java-${version:-8}-openjdk
-    export PATH=$PATH:/usr/lib/jvm/java-${version:-8}-openjdk/jre/bin
+    export PATH=$PATH:/usr/lib/jvm/java-${version:-8}-openjdk/bin
 }
 
 AndroidEnv() {
-	JavaEnvOracle
 	source "$HOME/projects/androidenv/environment.sh"
-	alias emulator="emulator.sh"
 }
 
 NvmEnv() {
