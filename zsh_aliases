@@ -1,0 +1,12 @@
+alias gss='git status -s'
+alias gdbtui="gdb -tui"
+alias feh='feh --geometry 1366x768 --draw-filename'
+alias feh-vector='feh --geometry 1366x768 --draw-filename --magick-timeout 1'
+alias adbcp='adbcp.sh'
+alias wlan='wlanconnect.sh'
+alias folders='pcmanfm'
+alias ll='ls -lh --classify --group-directories-first --color=auto'
+alias lla='ls -lahF --group-directories-first --color=auto'
+alias ea=emacs-android.sh
+alias help=run-help
+alias psa='ps -eo pid,user,command'
