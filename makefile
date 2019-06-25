@@ -4,7 +4,7 @@ install:
 	ln --symbolic $(CWD)/zshenv ~/.zshenv
 	ln --symbolic $(CWD)/zprofile ~/.zprofile
 	ln --symbolic $(CWD)/zshrc ~/.zshrc
-
+	ln --symbolic $(CWD)/zsh_aliases ~/.zsh_aliases
 
 uninstall:
 	unlink ~/.zshrc
