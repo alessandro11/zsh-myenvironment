@@ -4,13 +4,11 @@
 #
 export ZDOTDIR="$HOME"
 export GTAGSLIBPATH="$HOME/.gtags/"
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 export EDITOR="vim"
-# Export debug mode for express, for node.
-#export DEBUG="espress:*"
 
 # Get aliases
-[ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
+#[ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
 
 # Get profile
 [ -s "$ZDOTDIR/.zprofile" ] && source "$ZDOTDIR/.zprofile"
