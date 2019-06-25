@@ -14,15 +14,13 @@ AndroidEnv() {
 }
 
 NvmEnv() {
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    # Export debug mode for express, for node.
+    export DEBUG="espress:*"
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -f "$HOME/.nvmrc" ] && nvm use > /dev/null 2>&1
 }
 
 source $HOME/.ssh-agent.incsh
-
-# Load X if logged from tty1
-if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec startx -- :0 -novtswitch -noreset -verbose 3 -nolisten tcp
-fi
 
