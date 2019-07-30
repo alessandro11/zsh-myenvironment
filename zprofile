@@ -1,12 +1,12 @@
 JavaEnvOracle() {
 	export JAVA_HOME=/opt/java/
-	export PATH=$PATH:/opt/java/bin
+	export PATH=/opt/java/bin:$PATH
 }
 
 JavaEnv() {
     local version="$1"
     export JAVA_HOME=/usr/lib/jvm/java-${version:-8}-openjdk
-    export PATH=$PATH:/usr/lib/jvm/java-${version:-8}-openjdk/bin
+    export PATH=/usr/lib/jvm/java-${version:-8}-openjdk/bin:$PATH
 }
 
 AndroidEnv() {
@@ -15,12 +15,12 @@ AndroidEnv() {
 
 NvmEnv() {
     # Export debug mode for express, for node.
-    export DEBUG="espress:*"
+    export DEBUG="express:*"
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    [ -f "$HOME/.nvmrc" ] && nvm use > /dev/null 2>&1
+    #[ -f "$HOME/.nvmrc" ] && nvm use > /dev/null 2>&1
 }
 
+export TERM=xterm-256color
 source $HOME/.ssh-agent.incsh
 

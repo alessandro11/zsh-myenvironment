@@ -1,7 +1,8 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=65536
+SAVEHIST=65536
+
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -16,7 +17,7 @@ autoload -Uz run-help-git
 autoload -Uz promptinit
 
 promptinit
-prompt grml
+source '/usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme'
 
 # Get aliases
 [ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"

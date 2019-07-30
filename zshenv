@@ -4,11 +4,11 @@
 #
 export ZDOTDIR="$HOME"
 export GTAGSLIBPATH="$HOME/.gtags/"
-export PATH="$PATH:$HOME/.local/bin:/opt/bin"
+export PATH="$HOME/.local/bin:/opt/bin:$PATH"
 export EDITOR="vim"
 
 # Get aliases
-#[ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
+[ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
 
 # Get profile
 [ -s "$ZDOTDIR/.zprofile" ] && source "$ZDOTDIR/.zprofile"
