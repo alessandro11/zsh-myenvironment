@@ -14,11 +14,18 @@ AndroidEnv() {
 }
 
 NvmEnv() {
-    # Export debug mode for express, for node.
-    export DEBUG="express:*"
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -f "$HOME/.nvmrc" ] && nvm use > /dev/null 2>&1
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+        # Export debug mode for express, for node.
+        export DEBUG="express:*"
+        # if you have run command for nvm, use it as user defined
+        [ -f "$HOME/.nvmrc" ] && nvm use
+    else
+        unset NVM_DIR
+    fi
+
 }
 
 export TERM=xterm-256color
