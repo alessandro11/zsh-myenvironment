@@ -12,3 +12,9 @@ export EDITOR="vim"
 
 # Get profile
 [ -s "$ZDOTDIR/.zprofile" ] && source "$ZDOTDIR/.zprofile"
+
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
+
+bindkey  "^[[1~"   beginning-of-line
+bindkey  "^[[4~"   end-of-line

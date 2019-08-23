@@ -14,6 +14,7 @@ AndroidEnv() {
 }
 
 NvmEnv() {
+    export PATH=node_modules/@angular/cli/bin:$PATH
     export NVM_DIR="$HOME/.nvm"
     if [ -s "$NVM_DIR/nvm.sh" ]; then
         \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -29,5 +30,6 @@ NvmEnv() {
 }
 
 export TERM=xterm-256color
-source $HOME/.ssh-agent.incsh
+#source $HOME/.ssh-agent.incsh
 
+source  ~/.powerlevel9k/powerlevel9k.zsh-theme

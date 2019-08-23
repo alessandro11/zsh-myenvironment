@@ -1,29 +1,43 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+export PATH="$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# Set up the prompt
+
+setopt histignorealldups appendhistory autocd extendedglob
+unsetopt beep
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=65536
 SAVEHIST=65536
+HISTFILE=~/.zsh_history
 
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/m3cool/.zshrc'
-
+# Use modern completion system
 autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
 autoload -Uz run-help
 autoload -Uz run-help-git
-autoload -Uz promptinit
+compinit
 
-promptinit
-source '/usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme'
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
 
-# Get aliases
-[ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# Load X if logged from tty1
-if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec startx -- :0 -keeptty -novtswitch -noreset -verbose 3 -nolisten tcp
-fi
-
+# I have no idea what is going on. It seems .zshenv loads
+# automatically, however CTRL + {LEFT/RIGHT, HOME/END} does not work,
+# when i load it from below it works. It seems if you load twice, it
+# works. Also in the .Xresources needs to be set as well.
+[ -f "$ZDOTDIR/.zshenv" ] && source "$ZDOTDIR/.zshenv"
