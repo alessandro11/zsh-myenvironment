@@ -22,8 +22,14 @@ source '/usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme'
 # Get aliases
 [ -s "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
 
-# Load X if logged from tty1
-if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec startx -- :0 -keeptty -novtswitch -noreset -verbose 3 -nolisten tcp
-fi
+# I have no idea what is going on. It seems .zshenv loads
+# automatically, however CTRL + {LEFT/RIGHT, HOME/END} does not work,
+# when i load it from below it works. It seems if you load twice, it
+# works. Also in the .Xresources needs to be set as well.
+[ -f "$ZDOTDIR/.zshenv" ] && source "$ZDOTDIR/.zshenv"
 
+# Load X if logged from tty1
+#if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+#    exec startx -- :0 -keeptty -novtswitch -noreset -verbose 3 -nolisten tcp
+#fi
+#
