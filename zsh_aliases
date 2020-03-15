@@ -9,5 +9,4 @@ alias lla='ls -lahF --group-directories-first --color=auto'
 alias ea=emacs-android.sh
 alias help=run-help
 alias psa='ps -eo pid,user,command'
-alias mumm-tunn='tunntsocks.sh'
 alias firefox-ThroughSshProxy='firefox -P ThroughSshProxy --profile /home/m3cool/.mozilla/firefox/y1c6fwdt.ThroughSshProxy &> /dev/null & disown'
