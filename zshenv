@@ -19,3 +19,6 @@ bindkey '^[[1;5D' emacs-backward-word
 bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 
+#export TERM=xterm-256color
+export TERM="rxvt-unicode-256color"
+
