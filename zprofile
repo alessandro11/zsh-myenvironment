@@ -28,6 +28,7 @@ NvmEnv() {
 
 }
 
-export TERM=xterm-256color
-source $HOME/.ssh-agent.incsh
+[ -s $HOME/.rsa_pass ] && source $HOME/.rsa_pass
+[ -s $HOME/.ecdsa_pass ] && source $HOME/.ecdsa_pass
+source $HOME/.ssh-agent.sh
 
